@@ -1,26 +1,60 @@
-import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import { createRouter, createWebHistory } from 'vue-router';
+import HomePage from '../pages/HomePage.vue';
 
 const routes = [
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
+    path: '/',
+    name: 'home',
+    component: HomePage,
+    meta: {
+      title: 'Home',
+    },
   },
   {
-    path: "/about",
-    name: "about",
+    path: '/space',
+    name: 'space',
     // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
+    // this generates a separate chunk (space.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    component: () => import(/* webpackChunkName: "space" */ '../pages/SpacePage.vue'),
+    meta: {
+      title: 'Space',
+    },
+  },
+  {
+    path: '/dinosaurs',
+    name: 'dinosaurs',
+    component: () => import(/* webpackChunkName: "dinosaurs" */ '../pages/DinosaursPage.vue'),
+    meta: {
+      title: 'Dinosaurs',
+    },
+  },
+  {
+    path: '/wildlife',
+    name: 'wildlife',
+    component: () => import(/* webpackChunkName: "wildlife" */ '../pages/WildlifePage.vue'),
+    meta: {
+      title: 'Wildlife',
+    },
+  },
+  {
+    path: '/oceans',
+    name: 'oceans',
+    component: () => import(/* webpackChunkName: "oceans" */ '../pages/OceansPage.vue'),
+    meta: {
+      title: 'Oceans',
+    },
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = `Ezeika - ${to.meta.title}`;
+  next();
 });
 
 export default router;

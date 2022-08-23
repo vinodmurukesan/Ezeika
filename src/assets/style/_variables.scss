@@ -1,0 +1,25 @@
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
+);
+
+
+$white: #fff;
+
+$card-color: $white;
+$themeCard-color: #C9C1C1;
+
+
+$default-museum-highlight-color: #F6F8F0;
+$museum-highlight-border-color:#f2f8f9;
+$museum-highlight__hover-box-shadow: #26262633;
+$museum-highlight__hover-border: #ff0808;
+$museum-highlight__hover-background-color: $white;
+
+:export{
+  defaultMuseumHighlightColor: $default-museum-highlight-color;
+}
