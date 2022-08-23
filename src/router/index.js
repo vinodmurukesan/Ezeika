@@ -53,7 +53,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  document.title = `Ezeika - ${to.meta.title}`;
+  document.title = `${process.env.VUE_APP_TITLE} - ${to.meta.title}`;
   next();
 });
 

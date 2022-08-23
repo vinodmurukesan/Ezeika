@@ -9,7 +9,7 @@
           :key="'oceans-'+ i">
 
           <template #museum-highlight__icon>
-            <fa icon="fa-filter-circle-dollar" />
+            <fa icon="fa-wave-square" />
           </template>
 
           <template #museum-highlight__news v-if="item.news">
