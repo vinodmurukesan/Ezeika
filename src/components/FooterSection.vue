@@ -1,7 +1,7 @@
 <template>
   <footer class="footer" aria-label="Footer">
     <p>
-      <small>&copy; 2022 All Right Reserved.</small>
+      <small>&copy; {{ new Date().getFullYear() }} All Right Reserved.</small>
     </p>
   </footer>
 </template>
