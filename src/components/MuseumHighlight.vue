@@ -1,37 +1,54 @@
 <template>
   <article class="museum-highlight" :style="themeColor">
+
       <div class="museum-highlight__header">
+
         <h2 class="museum-highlight__title">
           {{ data.name }}
         </h2>
+
         <div class="museum-highlight__icon">
           <slot name="museum-highlight__icon" />
         </div>
+
       </div>
+
       <div class="museum-highlight__content">
+
         <figure class="museum-highlight__image-wrap">
           <img class="museum-highlight__image"
           :src="data.image ? data.image : fallbackImage"
           :alt="data.name" >
         </figure>
-        <slot name="museum-highlight__news"/>
+
+        <div v-if="data.news">
+          <news-box :news="data.news"/>
+        </div>
+
         <p>{{ data.description }}</p>
-        <slot name="museum-highlight__quiz"/>
+
+        <p v-if="data.quiz">
+          <a :href="data.quiz">click Here for the quiz</a>
+        </p>
+
       </div>
+
       <div class="museum-highlight__footer">
         Published: {{newsDate}}
-        <div class="museum-highlight__actions">
-          <slot name="museum-highlight__actions"/>
-        </div>
       </div>
+
   </article>
 </template>
 
 <script>
+import NewsBox from '@/components/NewsBox.vue';
 import variables from '@/assets/style/_variables.scss';
 
 export default {
   name: 'MuseumHighlight',
+  components: {
+    NewsBox,
+  },
   props: {
     data: {
       type: Object,

@@ -12,16 +12,6 @@
             <fa icon="fa-star" />
           </template>
 
-          <template #museum-highlight__news v-if="item.news">
-            <news-box :news="item.news"/>
-          </template>
-
-          <template #museum-highlight__quiz v-if="item.quiz">
-            <p>
-              <a :href="item.quiz">click Here for the quiz</a>
-            </p>
-          </template>
-
       </museum-highlight>
    </template>
   </page-layout>
@@ -31,7 +21,6 @@
 
 import PageLayout from '@/components/PageLayout.vue';
 import MuseumHighlight from '@/components/MuseumHighlight.vue';
-import NewsBox from '@/components/NewsBox.vue';
 import orderedDataMixin from '@/mixins/orderedData';
 import variables from '@/assets/style/_variables.scss';
 
@@ -41,7 +30,6 @@ export default {
   components: {
     PageLayout,
     MuseumHighlight,
-    NewsBox,
   },
   data() {
     return {

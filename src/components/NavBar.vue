@@ -3,7 +3,7 @@
     <ul class="main-nav__list">
       <li class="main-nav__item" v-for="(item, i) in links" :key="'nav-' + i">
         <router-link
-          class="btn btn-primary"
+          class="main-nav__link"
           :to="{ name: item.name.toLowerCase() }">
           {{ item.name }}
         </router-link>
@@ -51,7 +51,7 @@ export default {
     padding: 0 0 0 10px;
   }
 
-  a {
+  &__link {
     padding: 10px 20px;
     border-radius: 10px;
     color: $white;
@@ -64,6 +64,8 @@ export default {
     &.router-link-exact-active  {
       color: #2c3e50;
       background-color: #42b983;
+      border-top-left-radius: 0;
+      border-bottom-right-radius: 0;
       box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.5);
     }
   }
