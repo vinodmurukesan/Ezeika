@@ -2,11 +2,11 @@
 <page-layout :page-title="'Wildlife'">
     <template #page-layout__data>
       <museum-highlight
-          v-for="(item,i) in orderedData"
+          v-for="item in orderedData"
           :bg-color="item.theme ? themeCardColor : cardColor"
           :data="item"
           :fallback-image=fallbackImage
-          :key="'wildlife-'+ i">
+          :key="'wildlife-'+ item.id">
 
           <template #museum-highlight__icon>
             <fa icon="fa-filter-circle-dollar" />
@@ -48,7 +48,6 @@ export default {
       cardColor: variables.cardColor,
       themeCardColor: variables.themeCardColor,
       fallbackImage: 'http://picsum.photos/id/1000/300/300',
-      renderData: [],
       wildlife: [{
         date: '2020-07-05 4:10:00',
         description: 'Wildlife content will be updated soon...',
@@ -74,8 +73,10 @@ export default {
       }],
     };
   },
-  created() {
-    this.renderData = this.wildlife;
+  computed: {
+    renderData() {
+      return this.wildlife;
+    },
   },
 };
 </script>

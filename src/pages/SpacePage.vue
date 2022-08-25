@@ -2,11 +2,11 @@
   <page-layout :page-title="'Space'">
    <template #page-layout__data>
      <museum-highlight
-          v-for="(item,i) in orderedData"
+          v-for="item in orderedData"
           :bg-color="item.theme ? themeCardColor : cardColor"
           :data="item"
-          :fallback-image=fallbackImage
-          :key="'space-'+ i">
+          :fallback-image="fallbackImage"
+          :key="'space-'+ item.id">
 
           <template #museum-highlight__icon>
             <fa icon="fa-star" />
@@ -89,28 +89,31 @@ export default {
           info: 'The Mauna Kea Observatories (MKO) are a number of independent astronomical research facilities and large telescope observatories that are located at the summit of Mauna Kea on the Big Island of Hawaiʻi, United States.',
           image: '',
           name: 'Mauna Kea Observatories',
+          id: 33,
         },
       },
       cardColor: variables.cardColor,
       themeCardColor: variables.themeCardColor,
       fallbackImage: 'http://picsum.photos/id/1000/300/300',
-      renderData: [],
     };
   },
-  created() {
-    let tempArray = [];
-    /* eslint-disable */
-    for (const key of Object.keys(this.spacePartners)) {
-      const tempObj = {
-        date: this.spacePartners[key].createdAt,
-        description: this.spacePartners[key].info,
-        name: this.spacePartners[key].name,
-        image: this.spacePartners[key].image,
-        theme: true,
-      };
-      tempArray = [...tempArray, tempObj];
-    }
-    this.renderData = [...this.spaceHighlights, ...tempArray];
-  },
+  computed: {
+    renderData() {
+      let tempArray = [];
+      /* eslint-disable */
+      for (const key of Object.keys(this.spacePartners)) {
+        const tempObj = {
+          date: this.spacePartners[key].createdAt,
+          description: this.spacePartners[key].info,
+          name: this.spacePartners[key].name,
+          image: this.spacePartners[key].image,
+          theme: true,
+          id: this.spacePartners[key].id,
+        };
+        tempArray = [...tempArray, tempObj];
+      }
+      return [...this.spaceHighlights, ...tempArray];
+    },
+  }
 };
 </script>

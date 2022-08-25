@@ -2,11 +2,11 @@
   <page-layout :page-title="'Dinosaurs'">
     <template #page-layout__data>
       <museum-highlight
-          v-for="(item,i) in orderedData"
+          v-for="item in orderedData"
           :bg-color="item.theme ? themeCardColor : cardColor"
           :data="item"
           :fallback-image=fallbackImage
-          :key="'dino-'+ i">
+          :key="'dino-'+ item.id">
 
           <template #museum-highlight__icon>
             <fa icon="fa-filter-circle-dollar" />
@@ -80,11 +80,12 @@ export default {
         name: 'Dino 3',
         quiz: 'https://planetquiz.space',
       }],
-      renderData: [],
     };
   },
-  created() {
-    this.renderData = this.dino;
+  computed: {
+    renderData() {
+      return this.dino;
+    },
   },
 };
 </script>
