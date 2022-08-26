@@ -11,7 +11,7 @@ $grid-breakpoints: (
 $white: #fff;
 
 $card-color: #F6F8F0;
-$themeCard-color: #C9C1C1;
+$theme-card-color: #C9C1C1;
 
 
 $default-museum-highlight-color: #F6F8F0;
@@ -22,4 +22,6 @@ $museum-highlight__hover-background-color: $white;
 
 :export{
   defaultMuseumHighlightColor: $default-museum-highlight-color;
+  cardColor: $card-color;
+  themeCardColor: $theme-card-color;
 }

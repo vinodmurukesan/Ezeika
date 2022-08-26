@@ -62,7 +62,7 @@ export default {
   },
   data() {
     return {
-      fallbackImage: 'https://via.placeholder.com/150/000000/FFFFFF/?text=Image Not Found',
+      fallbackImage: 'https://via.placeholder.com/300/000000/FFFFFF/?text=Image Not Found',
     };
   },
   computed: {
@@ -83,7 +83,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/style/_variables.scss';
+@use '@/assets/style/_variables.scss' as *;
 
 .museum-highlight {
   margin: 10px;

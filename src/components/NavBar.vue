@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 
-@import '@/assets/style/_variables.scss';
+@use '@/assets/style/_variables.scss' as *;
 
 .main-nav {
   margin-left: auto;
