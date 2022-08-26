@@ -1,11 +1,11 @@
 <template>
-<page-layout :page-title="'Wildlife'">
+
+  <page-layout :page-title="'Wildlife'">
     <template #page-layout__data>
+
       <museum-highlight
           v-for="item in orderedData"
-          :bg-color="item.theme ? themeCardColor : cardColor"
           :data="item"
-          :fallback-image=fallbackImage
           :key="'wildlife-'+ item.id">
 
           <template #museum-highlight__icon>
@@ -13,29 +13,22 @@
           </template>
 
       </museum-highlight>
+
    </template>
   </page-layout>
+
 </template>
 
 <script>
 
-import PageLayout from '@/components/PageLayout.vue';
-import MuseumHighlight from '@/components/MuseumHighlight.vue';
+import pageComponents from '@/mixins/pageComponents';
 import orderedDataMixin from '@/mixins/orderedData';
-import variables from '@/assets/style/_variables.scss';
 
 export default {
   name: 'WildlifePage',
-  mixins: [orderedDataMixin],
-  components: {
-    PageLayout,
-    MuseumHighlight,
-  },
+  mixins: [pageComponents, orderedDataMixin],
   data() {
     return {
-      cardColor: variables.cardColor,
-      themeCardColor: variables.themeCardColor,
-      fallbackImage: 'http://picsum.photos/id/1000/300/300',
       wildlife: [{
         date: '2020-07-05 4:10:00',
         description: 'Wildlife content will be updated soon...',
@@ -52,7 +45,7 @@ export default {
         date: '2020-10-05 4:10:00',
         description: 'Wildlife content will be updated soon...',
         id: 556,
-        image: '',
+        image: 'http://picsum.photos/id/1020/300/300',
         name: 'Wildlife 2',
         news: {
           date: '2020-08-18 18:00:00',

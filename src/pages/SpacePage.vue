@@ -1,11 +1,12 @@
 <template>
+
   <page-layout :page-title="'Space'">
    <template #page-layout__data>
+
      <museum-highlight
           v-for="item in orderedData"
           :bg-color="item.theme ? themeCardColor : cardColor"
           :data="item"
-          :fallback-image="fallbackImage"
           :key="'space-'+ item.id">
 
           <template #museum-highlight__icon>
@@ -13,24 +14,21 @@
           </template>
 
       </museum-highlight>
+
    </template>
   </page-layout>
+
 </template>
 
 <script>
 
-import PageLayout from '@/components/PageLayout.vue';
-import MuseumHighlight from '@/components/MuseumHighlight.vue';
+import pageComponents from '@/mixins/pageComponents';
 import orderedDataMixin from '@/mixins/orderedData';
 import variables from '@/assets/style/_variables.scss';
 
 export default {
   name: 'SpacePage',
-  mixins: [orderedDataMixin],
-  components: {
-    PageLayout,
-    MuseumHighlight,
-  },
+  mixins: [pageComponents, orderedDataMixin],
   data() {
     return {
       spaceHighlights: [
@@ -38,14 +36,14 @@ export default {
           date: '2020-04-20 12:20:00',
           description: 'Asteroids are minor planets, especially of the inner Solar System. Larger asteroids have also been called planetoids.',
           id: 1,
-          image: '',
+          image: 'http://picsum.photos/id/1019/300/300',
           name: 'Asteroids',
         },
         {
           date: '2020-05-20 15:50:00',
           description: 'A comet is an icy, small Solar System body that, when passing close to the Sun, warms and begins to release gases, a process called outgassing.',
           id: 9,
-          image: '',
+          image: 'http://picsum.photos/id/1002/300/300',
           name: 'Comets',
         },
         {
@@ -64,7 +62,7 @@ export default {
           date: '2020-07-05 4:10:00',
           description: 'A meteor shower is a celestial event in which a number of meteors are observed to radiate, or originate, from one point in the night sky.',
           id: 12,
-          image: '',
+          image: 'http://picsum.photos/id/1000/300/300',
           name: 'Meteor showers',
           news: {
             title: 'The Lyrids will peak at on April 21-22 2021, at night',
@@ -82,7 +80,6 @@ export default {
       },
       cardColor: variables.cardColor,
       themeCardColor: variables.themeCardColor,
-      fallbackImage: 'http://picsum.photos/id/1000/300/300',
     };
   },
   computed: {

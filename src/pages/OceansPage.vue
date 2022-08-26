@@ -1,11 +1,11 @@
 <template>
+
 <page-layout :page-title="'Oceans'">
     <template #page-layout__data>
+
       <museum-highlight
           v-for="item in orderedData"
-          :bg-color="item.theme ? themeCardColor : cardColor"
           :data="item"
-          :fallback-image=fallbackImage
           :key="'oceans-'+ item.id">
 
           <template #museum-highlight__icon>
@@ -13,34 +13,27 @@
           </template>
 
       </museum-highlight>
+
    </template>
   </page-layout>
+
 </template>
 
 <script>
 
-import PageLayout from '@/components/PageLayout.vue';
-import MuseumHighlight from '@/components/MuseumHighlight.vue';
+import pageComponents from '@/mixins/pageComponents';
 import orderedDataMixin from '@/mixins/orderedData';
-import variables from '@/assets/style/_variables.scss';
 
 export default {
   name: 'OceansPage',
-  mixins: [orderedDataMixin],
-  components: {
-    PageLayout,
-    MuseumHighlight,
-  },
+  mixins: [pageComponents, orderedDataMixin],
   data() {
     return {
-      cardColor: variables.cardColor,
-      themeCardColor: variables.themeCardColor,
-      fallbackImage: 'http://picsum.photos/id/1000/300/300',
       oceans: [{
         date: '2020-07-05 4:10:00',
         description: 'Oceans content will be updated soon...',
         id: 456,
-        image: '',
+        image: 'http://picsum.photos/id/1038/300/300',
         name: 'Oceans 1',
         news: {
           date: '2020-08-18 18:00:00',

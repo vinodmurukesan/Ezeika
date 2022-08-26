@@ -59,13 +59,11 @@ export default {
       required: false,
       default: variables.defaultMuseumHighlightColor,
     },
-    fallbackImage: {
-      type: String,
-      required: true,
-    },
   },
   data() {
-    return {};
+    return {
+      fallbackImage: 'https://via.placeholder.com/150/000000/FFFFFF/?text=Image Not Found',
+    };
   },
   computed: {
     newsDate() {
