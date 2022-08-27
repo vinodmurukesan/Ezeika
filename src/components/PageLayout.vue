@@ -2,7 +2,7 @@
   <div class="page-layout">
     <h1 class="page-layout__title">{{ pageTitle}}</h1>
     <section class="page-layout__container">
-      <slot name="page-layout__data" />
+      <slot />
     </section>
   </div>
 </template>

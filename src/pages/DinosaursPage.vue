@@ -1,7 +1,6 @@
 <template>
 
   <page-layout :page-title="'Dinosaurs'">
-    <template #page-layout__data>
 
       <museum-highlight
           v-for="item in orderedData"
@@ -14,7 +13,6 @@
 
       </museum-highlight>
 
-   </template>
   </page-layout>
 
 </template>
